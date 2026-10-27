@@ -6,12 +6,13 @@ export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
     port: 5432,
-    username: "root",
-    password: "password",
-    database: "typeorm",
+    username: "postgres",
+    password: "postgres",
+    database: "invoces",
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [__dirname__+'/entities/*.ts'
+    ],
     migrations: [],
     subscribers: [],
 })
