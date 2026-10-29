@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "invoces",
     synchronize: true,
     logging: false,
-    entities: [__dirname__+'/entities/*.ts' 
+    entities: [__dirname__+'/entities/*.ts'  
     ],
     migrations: [],
     subscribers: [],

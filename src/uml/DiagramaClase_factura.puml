@@ -1,0 +1,97 @@
+@startuml Factura
+
+class AgenteComercial implements ICliente{
+}
+
+class Cliente extends AgenteComercial{
+    -dni: long
+    +        nombre: String
+}
+
+class LocalCliente{
+    
+}
+
+interface ICliente{
+
+}
+
+class Proveedor extends AgenteComercial{
+}
+
+class Producto{
+    -nombre: String
+    -stock: decimal
+}
+
+class Transaccion{
+    -id: long
+    -precioUnitario: decimal /*precio por unidad/kilo/metro...*/
+    -unidades: Integer
+    -unidadMedida: UnidadDeMedida /* metro,kg,unidad... */
+    -precioMedida: decimal
+    -cantidadUnidadMedida: decimal
+    -fecha: Date
+    -iva: decimal
+    -lote: String
+}
+
+enum IVA{
+
+}
+
+enum UnidadDeMedida{
+    kilogramo, metro, litro, unidad, metroCuadrado
+}
+
+class Venta extends Transaccion{
+}
+
+class Compra extends Transaccion{
+}
+
+class Documento{
+    -id: int
+    -logo: img
+    -nombreEmpresa: String
+    -direccionEmpresa: String
+    -telefonoEmpresa: interface
+    -emailEmpresa: String
+    -nifEmpresa: String  
+    -nombreCliente: String
+    -direccionCliente: String
+    -telefonoCliente: interface
+    -emailCliente: String
+    -nifCliente: String
+}
+
+class Factura extends Documento{
+}
+
+class Albaran extends Documento{
+}
+
+class Presupuesto extends Documento{
+}
+
+class Almacen{
+    -id: long
+    -nombre: String
+    -ubicacion: String
+}
+
+class Distribucion{
+    -id: long
+    -lote: String
+    -cantidad: double
+}
+
+AgenteComercial "1" -- "*" Transaccion
+Transaccion "*" -- "1" Producto
+Producto "1" -- "*" Distribucion
+Distribucion "1" -- "*" Almacen
+Documento *-- "Transaccion"
+Factura "0,1" -- "1,*" Albaran
+Cliente *-- "*" LocalCliente
+
+@enduml
