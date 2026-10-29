@@ -1,0 +1,50 @@
+Aquesta acció es pot fer tant **en local** com **al remot**, depenent de si prefereixes fer-ho per terminal o utilitzar una plataforma web (com GitHub, GitLab o Bitbucket).
+
+### Opció 1: Fer-ho en local (per terminal)
+
+És el mètode tradicional si treballes sol o vols fer-ho directament amb Git:
+
+1. Canvia a la branca `main`:
+```bash
+git checkout main
+
+```
+
+
+2. Actualitza el teu `main` local amb l'últim que hi hagi al remot:
+```bash
+git pull origin main
+
+```
+
+
+3. Fusiona la teva branca (`rama`) dins de `main`:
+```bash
+git merge rama
+
+```
+
+
+4. Puja els canvis ja fusionats al repositori remot:
+```bash
+git push origin main
+
+```
+
+
+
+---
+
+### Opció 2: Fer-ho des del remot (mitjançant una Pull Request)
+
+Si puges el codi a GitHub, GitLab o Bitbucket, aquesta opció és molt habitual i recomanada (sobretot en projectes amb més gent):
+
+1. Entra a la pàgines web del teu repositori (GitHub, etc.).
+2. Normalment veuràs un avís directe per crear una **Pull Request** (o *Merge Request*) de la branca `rama` cap a `main`.
+3. Fes clic a **Create Pull Request** i després a **Merge pull request** per acceptar els canvis a la web.
+4. Un cop fet al web, per tenir el teu ordinador sincronitzat, torna a la terminal i executa:
+```bash
+git checkout main
+git pull origin main
+
+```
